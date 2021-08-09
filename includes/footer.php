@@ -1,0 +1,1 @@
+<?php echo '<h3 style="text-align:center; color:white; background:dodgerblue; margin-top: 100px; padding:20px; bottom:0; width:98%;">Footer</h3>' ?>
