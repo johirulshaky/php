@@ -3,11 +3,35 @@
 <!-- header end -->
 
 
+<div id="top"></div>
+
+
+<!--
+============================================================
+==================Login Logout system start=================
+============================================================
+-->
+
+<?php
+session_start();
+if (!isset($_SESSION['user'])) {
+    header("Location: login.php");
+}
+?>
+
+<a style='text-decoration:none;box-shadow: 0px 8px 10px 0px #2f2f2f;padding: 5px;font-size:20px;background: #c71d25;color:white;position: fixed;top: 20px;right: 20px;' href="logout.php">Logout</a>
+
+<!--
+============================================================
+==================Login Logout system end===================
+============================================================
+-->
+
+<div style="padding-left:60px; background:#dbfdff; padding-bottom: 100px;">
 
 
 
-
-<?php echo "<h1 style= 'color:dodgerblue; text-decoration:underline; text-align:center;'>WELCOME TO PHP TUTORIAL</h1>" ?>
+<?php echo "<h1 style= 'color:dodgerblue;text-decoration:underline;text-align:center;margin: 0;padding-top: 30px;'>WELCOME TO PHP TUTORIAL</h1>" ?>
 
 <!-- without html tag -->
 <?php echo "Welcome to PHP without html element"; ?>
@@ -964,7 +988,7 @@ echo "<strong style= 'color:dodgerblue'>Returns the Host header from the current
 echo $_SERVER['HTTP_HOST'];
 echo "<br>";
 echo "<strong style= 'color:dodgerblue'>Returns the complete URL of the current page = </strong>";
-echo $_SERVER['HTTP_REFERER'];
+echo isset($_SERVER['HTTP_REFERER']);
 echo "<br>";
 echo "<strong style= 'color:dodgerblue'>Return the URL user agent = </strong>";
 echo $_SERVER['HTTP_USER_AGENT'];
@@ -979,22 +1003,23 @@ echo "<br>";
 echo '<b>---$_REQUEST</b> <br>';
 ?>
 
-<form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
+<div style="background: #bfdde8; padding: 30px 10px;">
+
+<form method="get" action="<?php echo $_SERVER['PHP_SELF'];?>">
   Name: <input type="text" name="fname">
   <input type="submit">
 </form>
 
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "GET") {
     // collect value of input field
-    $name = $_REQUEST['fname'];
+    $name = isset($_REQUEST['fname']) ? $_REQUEST['fname'] : '<span style=color:red>Name is empty</span>';
     if (empty($name)) {
-        echo "Name is empty";
+        echo "<h3>Name: <span style=color:red>Name is empty</span></h3>";
     } else {
-        echo $name;
+        echo "<h3>Name: <span style=color:green>$name</span></h3>";
     }
 }
-echo "<br>";
 ?>
 
 <?php
@@ -1003,17 +1028,21 @@ $user = isset($_REQUEST['user']) ? $_REQUEST['user'] : "johirulshaky";
 $email = isset($_REQUEST['email']) ? $_REQUEST['email'] : "johirul018641@gmail.com";
 $password = isset($_REQUEST['password']) ? $_REQUEST['password'] : "575859";
 ?>
-<form action="request.php" method="POST">
-    <input type="text" name="user" placeholder="johirulshaky">
-    <input type="email" name="email" placeholder="johirul018641@gmail.com">
-    <input type="password" name="password" placeholder="********">
+<form action="request.php" method="GET">
+    <input type="text" name="user" placeholder="johirulshaky" required>
+    <input type="email" name="email" placeholder="johirul018641@gmail.com" required>
+    <input type="password" name="password" placeholder="********" required>
     <input type="submit" name="submit" value="sign up">
 </form>
+
+</div>
 
 <!-- Superglobal - $_POST -->
 <?php
 echo '<b>---$_POST</b> <br>';
 ?>
+
+<div style="background: #bfdde8; padding: 30px 10px;">
 
 <form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
   Name: <input type="text" name="fname">
@@ -1025,11 +1054,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // collect value of input field
     $name = $_POST['fname'];
     if (empty($name)) {
-        echo "Name is empty";
+        echo "<h3>Name: <span style=color:red>Name is empty</span></h3>";
     } else {
-        echo $name;
+        echo "<h3>Name: <span style=color:green>$name</span></h3>";
     }
-    echo "<br>";
 }
 ?>
 
@@ -1040,18 +1068,25 @@ $email = isset($_POST['email']) ? $_POST['email'] : "johirul018641@gmail.com";
 $password = isset($_POST['password']) ? $_POST['password'] : "575859";
 ?>
 <form action="post.php" method="POST">
-    <input type="text" name="user" placeholder="johirulshaky">
-    <input type="email" name="email" placeholder="johirul018641@gmail.com">
-    <input type="password" name="password" placeholder="********">
+    <input type="text" name="user" placeholder="johirulshaky" required>
+    <input type="email" name="email" placeholder="johirul018641@gmail.com" required>
+    <input type="password" name="password" placeholder="********" required>
     <input type="submit" name="submit" value="sign up">
 </form>
 
+</div>
+
 <!-- Superglobal - $_GET -->
 <?php
-//manualy value system
 echo '<b>---$_GET</b> <br>';
+?>
+
+<div style="background: #bfdde8; padding: 30px 10px;">
+
+<?php
+//manualy value system
 echo "<a href='http://localhost/php/php-code/?subject=PHP&web=http://johirulshaky.com'>http://localhost/php/php-code/?subject=PHP&web=http://johirulshaky.com </a>";
-echo "Study: " . $_GET['subject'] . ". Web: " . $_GET['web'];
+echo "Subject: " . $_GET['subject'] . " Web: " . $_GET['web'];
 echo "<br>";
 ?>
 
@@ -1075,6 +1110,23 @@ echo "<a href='http://localhost/php/php-code/'>main path</a>";
 echo "<br><br>";
 ?>
 
+<form method="get" action="<?php echo $_SERVER['PHP_SELF'];?>">
+  Name: <input type="text" name="name">
+  <input type="submit">
+</form>
+
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "GET") {
+    // collect value of input field
+    $fullName = $_GET['name'];
+    if (empty($fullName)) {
+        echo "<h3>Name: <span style=color:red>Name is empty</span></h3>";
+    } else {
+        echo "<h3>Name: <span style=color:green>$fullName</span></h3>";
+    }
+}
+?>
+
 <?php
 //GET form submit system this page
 $user = isset($_GET['user']) ? $_GET['user'] : "johirulshaky";
@@ -1082,12 +1134,13 @@ $email = isset($_GET['email']) ? $_GET['email'] : "johirul018641@gmail.com";
 $password = isset($_GET['password']) ? $_GET['password'] : "575859";
 ?>
 <form action="get.php" method="GET">
-    <input type="text" name="user" placeholder="johirulshaky">
-    <input type="email" name="email" placeholder="johirul018641@gmail.com">
-    <input type="password" name="password" placeholder="********">
+    <input type="text" name="user" placeholder="johirulshaky" required>
+    <input type="email" name="email" placeholder="johirul018641@gmail.com" required>
+    <input type="password" name="password" placeholder="********" required>
     <input type="submit" name="submit" value="sign up">
 </form>
 
+</div>
 
 
 
@@ -1114,11 +1167,14 @@ $password = isset($_GET['password']) ? $_GET['password'] : "575859";
 
 
 
+</div>
 
 
+<a style="text-decoration:none;font-size: 18px;color:white;background: #253b50;position:fixed;right: 85px;bottom: 12px;padding: 5px;width: 48px;text-align: center;" href="#top">Top</a>
+<a style="text-decoration:none;font-size: 18px;color:white;background: #253b50;position:fixed;right: 13px;bottom: 12px;padding: 5px;" href="#bottom">Bottom</a>
 
 
-
+<div id="bottom"></div>
 
 
 <!-- footer start -->
