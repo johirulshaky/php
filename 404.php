@@ -8,8 +8,6 @@ if (!isset($_SESSION['user'])) {
 <!-- login-logout-end -->
 
 
-<?php echo '<h3 class="footer">Footer</h3>' ?>
+<h1 class='notFound'>Not found this page</h1>
 
 
-</body>
-</html>

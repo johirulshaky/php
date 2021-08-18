@@ -1,0 +1,183 @@
+/*============================
+=========header style=========
+============================*/
+
+.header {
+    text-align: center;
+    color: white;
+    background: dodgerblue;
+    padding: 10px;
+    margin: 0;
+}
+
+.header a {
+    text-decoration: none;
+    color: white;
+}
+
+
+/* logout */
+
+.logout {
+    text-decoration: none;
+    box-shadow: 0px 8px 10px 0px #2f2f2f;
+    padding: 5px;
+    font-size: 20px;
+    background: #c71d25;
+    color: white;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+
+/*==============================
+===========menu style===========
+==============================*/
+
+nav {
+    position: absolute;
+    top: 0px;
+    right: 225px;
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+nav ul li {
+    display: inline-block;
+    background: aliceblue;
+    color: white;
+    margin: 5px;
+    padding: 5px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    font-size: 20px;
+    padding: 5px;
+}
+
+
+/*===============================
+==========top bottom style=======
+===============================*/
+
+.top {
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    background: #253b50;
+    position: fixed;
+    right: 85px;
+    bottom: 12px;
+    padding: 5px;
+    width: 48px;
+    text-align: center;
+}
+
+.bottom {
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    background: #253b50;
+    position: fixed;
+    right: 13px;
+    bottom: 12px;
+    padding: 5px;
+}
+
+
+/*===========================
+==========page style=========
+===========================*/
+
+
+/* 404 page style */
+
+.notFound {
+    font-size: 60px;
+    margin: 305px auto;
+    width: 75%;
+    text-align: center;
+}
+
+
+/* about page style */
+
+.about {
+    margin: 50px auto 469px;
+    width: 70%;
+    text-align: center;
+}
+
+
+/* contact page style */
+
+.contact {
+    width: 40%;
+    text-align: center;
+    margin: 50px auto 303px;
+    padding: 35px;
+    background: #ddd;
+}
+
+.contact form input,
+textarea {
+    width: 70%;
+    margin: 5px;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.contact form input[type="submit"] {
+    cursor: pointer;
+    color: white;
+    background-color: dodgerblue;
+    font-size: 15px;
+}
+
+.contact form input[type="submit"]:hover {
+    background-color: rgb(69, 103, 138);
+}
+
+.message {
+    margin-bottom: 520px;
+    margin-left: 10px;
+}
+
+.message table tr td {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.messageHome {
+    text-decoration: none;
+    box-shadow: 0px 8px 10px 0px rgb(92 92 92);
+    padding: 3px;
+    font-size: 20px;
+    background: #c71e25;
+    color: white;
+    float: left;
+    margin-left: 10px;
+    margin-top: -500px;
+}
+
+
+/*=================================
+============footer style===========
+=================================*/
+
+.footer {
+    text-align: center;
+    color: white;
+    background: dodgerblue;
+    padding: 10px;
+    bottom: 0;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+}

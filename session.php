@@ -1,18 +1,25 @@
-<!-- login logout session start -->
+
+<!-- login-logout-start -->
 <?php
-session_start();
+// session_start();
 if (!isset($_SESSION['user'])) {
-    header("Location: login.php");
+    header("Location: http://localhost/php/php-code/login.php");
 }
 ?>
-<!-- login logout session end -->
+<!-- login-logout-end -->
 
-<?php
-session_start();
+<!-- 
+    Author   : Johirul Islam
+    Github   : https://github.com/johirulshaky
+    Facebook : https://facebook.com/johirulshaky
+    Linkedin : https://linkedin.com/in/johirulshaky
+    Instagram: https://www.instagram.com/johirulshaky/
+ -->
 
-$_SESSION['welcome'] = "Welcome to PHP <br>";
-$_SESSION['name'] = "Johirul <br>";
-$_SESSION['bye'] = "Bye PHP";
 
-print_r($_SESSION);
-?>
+        <?php
+        // session_start();
+        echo $_SESSION['welcome'];
+        echo $_SESSION['name'];
+        echo $_SESSION['bye'];
+        ?>
