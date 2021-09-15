@@ -1,13 +1,3 @@
-
-<!-- login-logout-start -->
-<?php
-// session_start();
-if (!isset($_SESSION['user'])) {
-    header("Location: http://localhost/php/php-code/login.php");
-}
-?>
-<!-- login-logout-end -->
-
 <!-- 
     Author   : Johirul Islam
     Github   : https://github.com/johirulshaky
@@ -17,9 +7,9 @@ if (!isset($_SESSION['user'])) {
  -->
 
 
-        <?php
-        // session_start();
-        echo $_SESSION['welcome'];
-        echo $_SESSION['name'];
-        echo $_SESSION['bye'];
-        ?>
+<?php
+    // session_start();
+    echo $_SESSION['welcome'];
+    echo $_SESSION['name'];
+    echo $_SESSION['bye'];
+?>

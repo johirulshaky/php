@@ -63,7 +63,7 @@
                     echo "<h2 style='color:red; width:300px; margin: 100px auto -90px; text-align:center'>Password not match</h2>";
                 }
             }else {
-                echo "<h2 style='color:red; width:300px; margin: 100px auto -90px; text-align:center'>Email not match</h2>" ;
+                echo "<h2 style='color:red; width:300px; margin: 100px auto -90px; text-align:center'>User name not match</h2>" ;
             }
         }
     ?>

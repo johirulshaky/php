@@ -661,8 +661,43 @@ if (!isset($_SESSION['user'])) {
             echo "Your favourite color is neither white, red, green nor blue";
             break;
     }
-    echo "<br><br>";
+    // echo "<br><br>";
     ?>
+
+    <ol>
+        <li>home</li>
+        <li>about</li>
+        <li>contact</li>
+    </ol>
+
+    <?php
+    $name = $_POST['switchName'];
+    // $submit = $_POST['submit'];
+    switch ($name) {
+        case '1':
+            echo 'home.php';
+            break;
+        
+        case '2':
+            echo 'about.php';
+            break;
+        
+        case '3':
+            echo 'contact.php';
+            break;
+
+        default:
+            echo 'no input value';
+            break;
+    }
+    ?>
+    
+    <form action="" method="post">
+        <input type="text" name="switchName">
+        <input type="submit" name="submit" value="Sent">
+        <br><br>
+    </form>
+
 
     <!-- while loop -->
     <?php
@@ -1228,10 +1263,8 @@ if (!isset($_SESSION['user'])) {
             $_SESSION['bye'] = "Bye PHP <br>";
 
             print_r ($_SESSION);
-
-            echo '<br><br><b>echo $_SESSION[ ]</b><br><br>';
-
-            require_once "session.php";
+            
+            echo '<h3><a href="http://localhost/php/php-code/index.php?page=session">Check Session</a></h3>';
         ?>
 
     </div>
@@ -1242,20 +1275,95 @@ if (!isset($_SESSION['user'])) {
     ?>
 
     <div style="background: #bfdde8; padding: 30px 10px;">
-
-        <?php
-            print_r($_COOKIE);
-        ?>
-
+        <h3><a href="http://localhost/php/php-code/cookie.php">Check Cookie</a></h3>
+        <!-- cookie code - cookie.php -->
     </div>
 
+    <!-- Superglobal - $_FILES -->
+    <?php
+    echo '<b>---$_FILES</b> <br>';
+    ?>
+
+    <div style="background: #bfdde8; padding: 30px 10px;">
+        <form action="upload.php" method="post" enctype="multipart/form-data">
+            <input type="file" name="uploadImg" ><br><br>
+            <input type="submit" name="submitImg" value="Upload">
+        </form>
+    </div>
+
+    <!-- Superglobal - $_ENV -->
+    <?php
+    echo '<b>---$_ENV</b> <br>';
+    ?>
+
+    <div style="background: #bfdde8; padding: 30px 10px;">
+        
+    </div>
+
+    <!-- PHP Date and Time -->
+    <?php
+    echo "<b><u>PHP Date and Time</u></b> <br>";
+    ?>
+
+    <?php
+        echo date("d/m/Y. h:i:s a l");
+        //d- Represents the day of the month (01 to 31)
+        //m - Represents a month (01 to 12)
+        //Y - Represents a year (in four digits)
+        //H - 24-hour format of an hour (00 to 23)
+        //h - 12-hour format of an hour with leading zeros (01 to 12)
+        //i - Minutes with leading zeros (00 to 59)
+        //s - Seconds with leading zeros (00 to 59)
+        //a - Lowercase Ante meridiem and Post meridiem (am or pm)
+        //l (lowercase 'L') - Represents the day of the week
+        echo "<br>";
+    ?>
+
+    <!-- Automatic Copyright Year -->
+    &copy; copyright 2020-<?php echo date("Y") ?> | All Right reserved <br>
+
+    <!-- Get Your Time Zone -->
+    <?php
+        date_default_timezone_set("America/New_York");
+        echo "Todays american time : " . date("d/m/Y. h:i:s a l");
+        echo "<br>";
+    ?>
+
+    <!-- Create a Date -->
+    <?php
+        //mktime(hour, minute, second, month, day, year)
+        $date = mktime(11, 14, 54, 8, 12, 2020);
+        echo "Create date : " . date("d/m/Y. h:i:s a", $date);
+        echo "<br>";
+    ?>
+    <?php
+        $date = strtotime("12:10:20pm september 15 2020"); //human readable date
+        echo "Create date time : " . date("d/m/Y. h:i:s a", $date);
+        echo "<br>";
+    ?>
+
+    <?php
+        $date = strtotime("tomorrow");
+        echo "Tomorrow date time : " . date("d/m/Y. h:i:s a", $date) . "<br>";
+        $date = strtotime("next saturday");
+        echo "Next saturday date time : " . date("d/m/Y. h:i:s a", $date) . "<br>";
+        $date = strtotime("+4 months");
+        echo "Next 3 months date time : " . date("d/m/Y. h:i:s a", $date) . "<br>";
+    ?>
+
+    <!-- readfile -->
+    <?php
+    echo "<b><u>readfile()</u></b> <br>";
+    ?>
+
+    <?php
+        echo "readfile('README.md') : ";
+        echo readfile('README.md');
+    ?>
 
 
 
-
-
-
-
+    
 
 
 
